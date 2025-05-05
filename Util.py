@@ -1,6 +1,7 @@
 #Importar la libreria para GUI
 from tkinter import *
 from tkinter.ttk import *
+from tkcalendar import *
 
 #Importar libreria para Expresiones Regulares
 import re
@@ -49,6 +50,11 @@ def agregarLista(ventana, opciones, fila, columna, expandir=1):
     cmb.grid(row=fila, column=columna, columnspan=expandir)
     cmb["values"]=opciones
     return cmb
+
+def agregarCalendario(ventana, fila, columna, expandir=1):
+    cld = DateEntry(ventana, date_pattern="dd/mm/yyyy")
+    cld.grid(row=fila, column=columna, columnspan=expandir)
+    return cld
 
 def esReal(texto):
     return True if re.match("^[-]?[0-9]+[.]?[0-9]*$", texto) else False
